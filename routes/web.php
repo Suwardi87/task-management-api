@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\TaskController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Frontend\LogController;
 
+
 // Halaman depan
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -37,6 +38,9 @@ Route::middleware([
         Route::resource('users', UserController::class)->only(['index', 'store']);
     });
 
+
+Route::get('/tasks/export/csv', [TaskController::class, 'exportCsv'])->name('tasks.export.csv');
+
     // Logs - hanya admin
-    Route::middleware('can:view-logs')->get('/logs', [LogController::class, 'index'])->name('logs.index');
+    // Route::middleware('can:view-logs')->get('/logs', [LogController::class, 'index'])->name('logs.index');
 });

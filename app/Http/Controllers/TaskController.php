@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\ActivityLogger;
+use App\Http\Resources\TaskResource;
 
 class TaskController extends Controller
 {
@@ -18,13 +19,11 @@ class TaskController extends Controller
 
     public function index()
     {
-        $tasks = Task::with('assignedTo', 'createdBy')
-            ->select('id', 'title', 'description', 'assigned_to', 'status', 'due_date', 'created_by')
-            ->get();
+       $tasks = Task::with(['assignedTo', 'creator'])
+        ->latest()
+        ->paginate(10);
 
-        $this->logger->log('view_tasks', 'User viewed list of tasks');
-
-        return response()->json($tasks);
+    return TaskResource::collection($tasks);
     }
 
     public function store(Request $request)

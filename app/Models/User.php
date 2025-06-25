@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// // use Illuminate\Contracts\Auth\MustVerifyEmail;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
@@ -15,7 +15,6 @@ class User extends Authenticatable
     protected $keyType = 'string';
     public $incrementing = false;
 
-    
     protected $fillable = [
         'name',
         'email',
@@ -25,10 +24,12 @@ class User extends Authenticatable
     ];
 
     protected $hidden = ['password'];
-        protected static function booted(): void
-        {
-            static::creating(function ($model) {
-                $model->id = (string) Str::uuid();
-            });
-        }
+
+    protected static function booted(): void
+    {
+        static::creating(function ($model) {
+            $model->id = (string) Str::uuid();
+        });
+    }
 }
+

@@ -59,3 +59,133 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Task Management API
+
+Aplikasi manajemen tugas sederhana berbasis Laravel, Inertia.js, dan Vue 3.
+
+---
+
+## 📦 Setup Project
+
+1. **Clone repo**
+   ```bash
+   git clone https://github.com/username/task-management-api.git
+   cd task-management-api
+   ```
+
+2. **Install dependency backend**
+   ```bash
+   composer install
+   ```
+
+3. **Install dependency frontend**
+   ```bash
+   npm install
+   ```
+
+4. **Copy file environment**
+   ```bash
+   cp .env.example .env
+   ```
+
+5. **Generate key**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Atur database di file `.env`**
+
+7. **Migrasi dan seed**
+   ```bash
+   php artisan migrate --seed
+   ```
+
+8. **Jalankan server**
+   ```bash
+   php artisan serve
+   npm run dev
+   ```
+
+---
+
+## 🗂️ ERD (Entity Relationship Diagram)
+
+![ERD](screenshots/erd.png)
+
+**Penjelasan singkat:**
+- **users**: tabel user aplikasi
+- **tasks**: tabel tugas, relasi ke user (assigned_to & creator)
+
+---
+
+## ✨ Fitur
+
+- Autentikasi (login, register, logout)
+- CRUD Task (Create, Read, Update, Delete)
+- Assign task ke user lain
+- Filter task by status
+- Validasi form
+- Notifikasi sukses/gagal
+- Responsive UI
+
+---
+
+## 🖼️ Screenshot
+
+### Login
+![Login](screenshots/login.png)
+
+### CRUD Task
+![Task List](screenshots/task-list.png)
+![Task Form](screenshots/task-form.png)
+![Task Detail](screenshots/task-detail.png)
+
+### Hasil Test
+![Test Result](screenshots/test-result.png)
+
+---
+
+## ⚙️ .env.example
+
+```
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost
+
+LOG_CHANNEL=stack
+LOG_DEPRECATIONS_CHANNEL=null
+LOG_LEVEL=debug
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=task_management
+DB_USERNAME=root
+DB_PASSWORD=
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+# ... tambahkan konfigurasi lain sesuai kebutuhan
+```
+
+---
+
+## 📚 Testing
+
+Jalankan unit test:
+```bash
+php artisan test
+```
+
+---
+
+## Lisensi
+
+MIT License.

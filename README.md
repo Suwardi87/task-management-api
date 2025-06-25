@@ -111,7 +111,7 @@ Aplikasi manajemen tugas sederhana berbasis Laravel, Inertia.js, dan Vue 3.
 
 ## 🗂️ ERD (Entity Relationship Diagram)
 
-![ERD](screenshots/erd.png)
+
 
 **Penjelasan singkat:**
 - **users**: tabel user aplikasi
@@ -151,28 +151,33 @@ Aplikasi manajemen tugas sederhana berbasis Laravel, Inertia.js, dan Vue 3.
 ```
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=
+APP_KEY=base64:8T+Tva8ONYCEC0zwRB8rBV5RXE2r5B+fMMf+koEA0eU=
 APP_DEBUG=true
 APP_URL=http://localhost
 
+APP_LOCALE=en
+APP_FALLBACK_LOCALE=en
+APP_FAKER_LOCALE=en_US
+
+APP_MAINTENANCE_DRIVER=file
+# APP_MAINTENANCE_STORE=database
+
+PHP_CLI_SERVER_WORKERS=4
+
+BCRYPT_ROUNDS=12
+
 LOG_CHANNEL=stack
+LOG_STACK=single
 LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=task_management
+DB_DATABASE=task_management_api
 DB_USERNAME=root
 DB_PASSWORD=
 
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-QUEUE_CONNECTION=sync
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-# ... tambahkan konfigurasi lain sesuai kebutuhan
 ```
 
 ---
